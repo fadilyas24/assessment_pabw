@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment</title>
+</head>
+<body>
+    <div>
+        <img src="gambar/FORMAL.jpg" width="100px">
+        <ul>
+            <li>Nama : Muhammad Fadilyas Fathuris Haryanto</li>
+            <li>NIM : 6701220085</li>
+            <li>Kelas : D3SI 46-04</li>
+        </ul>
+    </div>
+
+    <div>
+        <label for="jumlah">Jumlah:</label>
+        <input type="text" id="jumlah" name="jumlah">
+    </div>
+    <div>
+        <label for="option">Pilihan:</label>
+            <select id="option" name="option">
+                <option value="sherlock">sherlock</option>
+                <option value="lupin">lupin</option>
+                <option value="aladin">aladin</option>
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <button onclick="ambilNilai()">Submit</button>
+    </div>
+
+    <script>
+        function ambilNilai() {
+            // Mengambil nilai jumlah
+            var jumlah = document.getElementById('jumlah').value;
+
+            // Mengambil nilai pilihan
+            var selectOption = document.getElementById('option');
+            var pilihan = selectOption.options[selectOption.selectedIndex].value;
+
+            // Menampilkan hasil
+            console.log("Jumlah: " + jumlah);
+            console.log("Pilihan: " + pilihan);
+
+
+            let buku = [
+            {"nama": "sherlock", "jumlah":2},
+            {"nama": "lupin", "jumlah":2},
+            {"nama": "aladin", "jumlah":2},
+            ];    
+            
+            if (jumlah === "") {
+                alert("Input jumlah tidak boleh kosong!");
+                return;
+            }
+
+            var bukuDitemukan = false;
+            for (var i = 0; i < buku.length; i++) {
+                if (buku[i].nama === pilihan && jumlah <= buku[i].jumlah) {
+                    bukuDitemukan = true;
+                    alert('silahkan ambil buku anda');
+                    break;
+                }else if (buku[i].nama !== pilihan || jumlah > buku[i].jumlah) {
+                    alert("buku tidak tersedia atau jumlah buku tidak tidak tersedia")
+                }
+            }
+
+
+        }
+
+        
+
+    </script>
+</body>
+</html>
